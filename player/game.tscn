@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://be5atey1acbhe"]
+
+[ext_resource type="PackedScene" uid="uid://bmt1i04k2igs7" path="res://player/Player1.tscn" id="1_ijeiy"]
+[ext_resource type="Texture2D" uid="uid://bos7rridjkps1" path="res://level/checkboard.png" id="2_7ox5r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijeiy"]
+albedo_color = Color(0.05490196, 0.39607844, 0.26666668, 1)
+
+[sub_resource type="Environment" id="Environment_7ox5r"]
+background_mode = 1
+background_color = Color(0.011764706, 0.77254903, 1, 1)
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+tonemap_mode = 2
+tonemap_exposure = 1.24
+tonemap_white = 0.8
+fog_enabled = true
+fog_light_color = Color(0, 0.627451, 0.8901961, 1)
+fog_height = -0.95
+fog_height_density = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nm7jd"]
+albedo_color = Color(1, 0.717647, 0.188235, 1)
+albedo_texture = ExtResource("2_7ox5r")
+uv1_triplanar = true
+uv1_triplanar_sharpness = 4.0
+
+[node name="Game" type="Node3D"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(0.9999888, 0, -0.0047298246, 0, 1, 0, 0.0047298246, 0, 0.9999888, -0.37008873, -2.3175201, -1.9482749)
+use_collision = true
+size = Vector3(17.733398, 9.876099, 14.870605)
+material = SubResource("StandardMaterial3D_ijeiy")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D"]
+transform = Transform3D(0.9999893, 0, -0.0047298237, 0, 1, 0, 0.0047298237, 0, 0.9999893, -0.34293032, -0.07411909, 35.633675)
+use_collision = true
+size = Vector3(10, 9.876099, 10)
+material = SubResource("StandardMaterial3D_ijeiy")
+
+[node name="Player1" parent="." instance=ExtResource("1_ijeiy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7100029, 3, -1.6170917)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.70970607, -0.6810402, 0.18028198, -0.10929681, 0.14636429, 0.9831744, -0.6959682, -0.717469, 0.029440105, 0, 3.713915, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_7ox5r")
+
+[node name="Bridge2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22028446, 2.219232, 9.537144)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_nm7jd")

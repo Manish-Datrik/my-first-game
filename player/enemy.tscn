@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhhbci2tlftlq"]
+
+[ext_resource type="Script" uid="uid://242f15x4dfxg" path="res://player/enemy.gd" id="1_6swjh"]
+[ext_resource type="PackedScene" uid="uid://b3w2vp0dbsfa4" path="res://mob/bat/bat_model.glb" id="1_86f53"]
+
+[node name="Enemy" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32902396, 0, -0.38860464)
+script = ExtResource("1_6swjh")
+
+[node name="bat_model" parent="." instance=ExtResource("1_86f53")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36507308, 0, 0.4468727)

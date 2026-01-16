@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://dp7sxe5xl5shk"]
 
 [ext_resource type="Texture2D" uid="uid://bos7rridjkps1" path="res://level/checkboard.png" id="1_cig4d"]
-[ext_resource type="PackedScene" uid="uid://b805axd1iwodc" path="res://player/player.tscn" id="2_bc4qa"]
+[ext_resource type="PackedScene" uid="uid://bmt1i04k2igs7" path="res://player/Player1.tscn" id="2_bc4qa"]
 
 [sub_resource type="Environment" id="Environment_pev5d"]
 background_mode = 1
@@ -76,11 +76,29 @@ use_collision = true
 size = Vector3(23.878906, 11, 20.00122)
 material = SubResource("StandardMaterial3D_pixig")
 
+[node name="PLAYER" parent="." instance=ExtResource("2_bc4qa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017143726, 0.5, -4.7183914)
+
 [node name="Platform7" type="CSGBox3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 26)
 use_collision = true
 size = Vector3(9, 11, 9)
 material = SubResource("StandardMaterial3D_7l0sc")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("2_bc4qa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5809376, -2)
+[node name="Platform7" type="CSGBox3D" parent="Platform7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.203758, 0, -0.44782257)
+use_collision = true
+size = Vector3(9, 11, 9)
+material = SubResource("StandardMaterial3D_7l0sc")
+
+[node name="Bridge7" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.03418, 9.536743e-07, 25.962029)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
+
+[node name="Bridge7" type="CSGBox3D" parent="Bridge7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.506379, 9.536743e-07, -0.27090454)
+use_collision = true
+size = Vector3(4, 1, 3)
+material = SubResource("StandardMaterial3D_ooyhk")
